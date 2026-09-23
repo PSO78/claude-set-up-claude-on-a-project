@@ -3,14 +3,11 @@
 Starter Express API for the Claude Code course projects.
 
 ## Commands
-
-npm install
-npm run dev      # starts the API on http://localhost:3000, auto-restarts on change (node--watch)
-npm test         # runs all tests (node's built-in test runner)
+- `npm run dev` — start the API with auto-reload on http://localhost:3000
+- `npm test` — run the test suite (Node's built-in test runner)
+- `npm run lint` — check code style with ESLint
 
 Run a single test file: `node --test tests/users.test.js`
-
-CI (`.github/workflows/ci.yml`) runs `npm install`, `npm run lint`, `npm test` on every push and PR — keep both green.
 
 ## Architecture
 
@@ -22,4 +19,6 @@ CI (`.github/workflows/ci.yml`) runs `npm install`, `npm run lint`, `npm test` o
 ## Conventions
 
 - Data access from routes goes through `db/store.js`, not inline array manipulation.
+- One route file per resource in `routes/`, mounted in `server.js`.
+- Validate input in the route: return `400` for bad input and `404` for a missing record.
 - `.env` holds real config/secrets.
