@@ -18,6 +18,7 @@ Run a single test file: `node --test tests/users.test.js`
 
 ## Conventions
 
+- Use CommonJS (`require` / `module.exports`), not ES module `import`.
 - Data access from routes goes through `db/store.js`, not inline array manipulation.
 - One route file per resource in `routes/`, mounted in `server.js`.
 - Validate input in the route: return `400` for bad input and `404` for a missing record.
